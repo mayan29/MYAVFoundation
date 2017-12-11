@@ -29,4 +29,5 @@ _metadataItem.metadata.title = @"new title";
 可以修改 MPEG-4 和 QuickTime 容器中存在的元数据信息，不过不能添加新的元数据。此外，不能修改 ID3 标签，不支持写入 MP3 数据。
 
 ### 示例截图
- 
+
+![01](https://github.com/Mayan29/MYAVFoundation/blob/master/SampleData/01.gif)
