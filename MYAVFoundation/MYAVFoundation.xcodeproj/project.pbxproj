@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC6D01F41FFB30B000ABBEBE /* hubblecast.m4v in Resources */ = {isa = PBXBuildFile; fileRef = BC6D01F31FFB30B000ABBEBE /* hubblecast.m4v */; };
+		BC6D01F71FFB30C300ABBEBE /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D01F61FFB30C300ABBEBE /* VideoPlayerViewController.m */; };
+		BC6D020D1FFB319B00ABBEBE /* MYThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D01FA1FFB319B00ABBEBE /* MYThumbnail.m */; };
+		BC6D020E1FFB319B00ABBEBE /* MYVideoPlayerResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC6D01FD1FFB319B00ABBEBE /* MYVideoPlayerResource.bundle */; };
+		BC6D020F1FFB319B00ABBEBE /* MYPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D01FF1FFB319B00ABBEBE /* MYPlayerController.m */; };
+		BC6D02101FFB319B00ABBEBE /* MYPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D02001FFB319B00ABBEBE /* MYPlayerViewController.m */; };
+		BC6D02111FFB319B00ABBEBE /* MYSubtitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D02051FFB319B00ABBEBE /* MYSubtitleViewController.m */; };
+		BC6D02121FFB319B00ABBEBE /* MYStillsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D02061FFB319B00ABBEBE /* MYStillsListViewController.m */; };
+		BC6D02131FFB319B00ABBEBE /* MYOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D02081FFB319B00ABBEBE /* MYOverlayView.m */; };
+		BC6D02141FFB319B00ABBEBE /* MYOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6D02091FFB319B00ABBEBE /* MYOverlayView.xib */; };
+		BC6D02151FFB319B00ABBEBE /* MYPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6D020A1FFB319B00ABBEBE /* MYPlayerView.m */; };
 		BC857CFC1FDE2BAE00E9D1E7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC857CFB1FDE2BAE00E9D1E7 /* AppDelegate.m */; };
 		BC857CFF1FDE2BAE00E9D1E7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC857CFE1FDE2BAE00E9D1E7 /* ViewController.m */; };
 		BC857D021FDE2BAE00E9D1E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC857D001FDE2BAE00E9D1E7 /* Main.storyboard */; };
@@ -51,6 +62,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC6D01F31FFB30B000ABBEBE /* hubblecast.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = hubblecast.m4v; sourceTree = "<group>"; };
+		BC6D01F51FFB30C300ABBEBE /* VideoPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		BC6D01F61FFB30C300ABBEBE /* VideoPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		BC6D01FA1FFB319B00ABBEBE /* MYThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYThumbnail.m; sourceTree = "<group>"; };
+		BC6D01FB1FFB319B00ABBEBE /* MYTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYTransport.h; sourceTree = "<group>"; };
+		BC6D01FC1FFB319B00ABBEBE /* MYThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYThumbnail.h; sourceTree = "<group>"; };
+		BC6D01FD1FFB319B00ABBEBE /* MYVideoPlayerResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYVideoPlayerResource.bundle; sourceTree = "<group>"; };
+		BC6D01FF1FFB319B00ABBEBE /* MYPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerController.m; sourceTree = "<group>"; };
+		BC6D02001FFB319B00ABBEBE /* MYPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerViewController.m; sourceTree = "<group>"; };
+		BC6D02011FFB319B00ABBEBE /* MYSubtitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYSubtitleViewController.h; sourceTree = "<group>"; };
+		BC6D02021FFB319B00ABBEBE /* MYStillsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYStillsListViewController.h; sourceTree = "<group>"; };
+		BC6D02031FFB319B00ABBEBE /* MYPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerViewController.h; sourceTree = "<group>"; };
+		BC6D02041FFB319B00ABBEBE /* MYPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerController.h; sourceTree = "<group>"; };
+		BC6D02051FFB319B00ABBEBE /* MYSubtitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYSubtitleViewController.m; sourceTree = "<group>"; };
+		BC6D02061FFB319B00ABBEBE /* MYStillsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYStillsListViewController.m; sourceTree = "<group>"; };
+		BC6D02081FFB319B00ABBEBE /* MYOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYOverlayView.m; sourceTree = "<group>"; };
+		BC6D02091FFB319B00ABBEBE /* MYOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MYOverlayView.xib; sourceTree = "<group>"; };
+		BC6D020A1FFB319B00ABBEBE /* MYPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYPlayerView.m; sourceTree = "<group>"; };
+		BC6D020B1FFB319B00ABBEBE /* MYOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYOverlayView.h; sourceTree = "<group>"; };
+		BC6D020C1FFB319B00ABBEBE /* MYPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPlayerView.h; sourceTree = "<group>"; };
 		BC857CF71FDE2BAE00E9D1E7 /* MYAVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYAVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC857CFA1FDE2BAE00E9D1E7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC857CFB1FDE2BAE00E9D1E7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +152,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC6D01F11FFB307800ABBEBE /* MYVideoPlayerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D01F21FFB30B000ABBEBE /* Media */,
+				BC6D01F51FFB30C300ABBEBE /* VideoPlayerViewController.h */,
+				BC6D01F61FFB30C300ABBEBE /* VideoPlayerViewController.m */,
+			);
+			path = MYVideoPlayerDemo;
+			sourceTree = "<group>";
+		};
+		BC6D01F21FFB30B000ABBEBE /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D01F31FFB30B000ABBEBE /* hubblecast.m4v */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		BC6D01F81FFB319B00ABBEBE /* MYVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D01F91FFB319B00ABBEBE /* Models */,
+				BC6D01FD1FFB319B00ABBEBE /* MYVideoPlayerResource.bundle */,
+				BC6D01FE1FFB319B00ABBEBE /* Controllers */,
+				BC6D02071FFB319B00ABBEBE /* Views */,
+			);
+			path = MYVideoPlayer;
+			sourceTree = "<group>";
+		};
+		BC6D01F91FFB319B00ABBEBE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D01FA1FFB319B00ABBEBE /* MYThumbnail.m */,
+				BC6D01FB1FFB319B00ABBEBE /* MYTransport.h */,
+				BC6D01FC1FFB319B00ABBEBE /* MYThumbnail.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC6D01FE1FFB319B00ABBEBE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D01FF1FFB319B00ABBEBE /* MYPlayerController.m */,
+				BC6D02001FFB319B00ABBEBE /* MYPlayerViewController.m */,
+				BC6D02011FFB319B00ABBEBE /* MYSubtitleViewController.h */,
+				BC6D02021FFB319B00ABBEBE /* MYStillsListViewController.h */,
+				BC6D02031FFB319B00ABBEBE /* MYPlayerViewController.h */,
+				BC6D02041FFB319B00ABBEBE /* MYPlayerController.h */,
+				BC6D02051FFB319B00ABBEBE /* MYSubtitleViewController.m */,
+				BC6D02061FFB319B00ABBEBE /* MYStillsListViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BC6D02071FFB319B00ABBEBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BC6D02081FFB319B00ABBEBE /* MYOverlayView.m */,
+				BC6D02091FFB319B00ABBEBE /* MYOverlayView.xib */,
+				BC6D020A1FFB319B00ABBEBE /* MYPlayerView.m */,
+				BC6D020B1FFB319B00ABBEBE /* MYOverlayView.h */,
+				BC6D020C1FFB319B00ABBEBE /* MYPlayerView.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		BC857CEE1FDE2BAE00E9D1E7 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +243,7 @@
 			children = (
 				BC857D2C1FDE2CC300E9D1E7 /* MYAVFoundation */,
 				BC857D451FDE2D7C00E9D1E7 /* MYMetadataDemo */,
+				BC6D01F11FFB307800ABBEBE /* MYVideoPlayerDemo */,
 				BC857CFA1FDE2BAE00E9D1E7 /* AppDelegate.h */,
 				BC857CFB1FDE2BAE00E9D1E7 /* AppDelegate.m */,
 				BC857CFD1FDE2BAE00E9D1E7 /* ViewController.h */,
@@ -180,8 +278,9 @@
 		BC857D2C1FDE2CC300E9D1E7 /* MYAVFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				BC857D461FDE2DB000E9D1E7 /* MYAVFoundation.h */,
 				BC857D2D1FDE2CEF00E9D1E7 /* MYMetadataItem */,
+				BC6D01F81FFB319B00ABBEBE /* MYVideoPlayer */,
+				BC857D461FDE2DB000E9D1E7 /* MYAVFoundation.h */,
 			);
 			path = MYAVFoundation;
 			sourceTree = "<group>";
@@ -350,11 +449,14 @@
 			files = (
 				BC857D601FDE308200E9D1E7 /* 04 Demo ID3v2.4.mp3 in Resources */,
 				BC857D071FDE2BAE00E9D1E7 /* LaunchScreen.storyboard in Resources */,
+				BC6D020E1FFB319B00ABBEBE /* MYVideoPlayerResource.bundle in Resources */,
 				BC857D041FDE2BAE00E9D1E7 /* Assets.xcassets in Resources */,
 				BC857D5E1FDE308200E9D1E7 /* 03 Demo ID3v2.3.mp3 in Resources */,
 				BC857D021FDE2BAE00E9D1E7 /* Main.storyboard in Resources */,
 				BC857D5D1FDE308200E9D1E7 /* 02 Demo ID3v2.2.mp3 in Resources */,
+				BC6D01F41FFB30B000ABBEBE /* hubblecast.m4v in Resources */,
 				BC857D5F1FDE308200E9D1E7 /* 01 Demo AAC.m4a in Resources */,
+				BC6D02141FFB319B00ABBEBE /* MYOverlayView.xib in Resources */,
 				BC857D5C1FDE308200E9D1E7 /* Hubblecast.mov in Resources */,
 				BC857D521FDE303D00E9D1E7 /* DetailViewController.xib in Resources */,
 				BC857D5B1FDE308200E9D1E7 /* Charlie The Unicorn.m4v in Resources */,
@@ -383,17 +485,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC857D4E1FDE2FB300E9D1E7 /* MetadataViewController.m in Sources */,
+				BC6D02121FFB319B00ABBEBE /* MYStillsListViewController.m in Sources */,
 				BC857D3F1FDE2CEF00E9D1E7 /* MYDefaultMetadataConverter.m in Sources */,
+				BC6D02131FFB319B00ABBEBE /* MYOverlayView.m in Sources */,
+				BC6D020F1FFB319B00ABBEBE /* MYPlayerController.m in Sources */,
 				BC857D401FDE2CEF00E9D1E7 /* MYGenre.m in Sources */,
+				BC6D01F71FFB30C300ABBEBE /* VideoPlayerViewController.m in Sources */,
+				BC6D02101FFB319B00ABBEBE /* MYPlayerViewController.m in Sources */,
 				BC857D441FDE2CEF00E9D1E7 /* MYMetadataKeys.m in Sources */,
 				BC857CFF1FDE2BAE00E9D1E7 /* ViewController.m in Sources */,
 				BC857D411FDE2CEF00E9D1E7 /* MYMetadataItem.m in Sources */,
+				BC6D02111FFB319B00ABBEBE /* MYSubtitleViewController.m in Sources */,
 				BC857D0A1FDE2BAE00E9D1E7 /* main.m in Sources */,
 				BC857D431FDE2CEF00E9D1E7 /* AVMetadataItem+Extension.m in Sources */,
 				BC857D3E1FDE2CEF00E9D1E7 /* MYMetadataConverterFactory.m in Sources */,
 				BC857D421FDE2CEF00E9D1E7 /* MYMetadata.m in Sources */,
 				BC857CFC1FDE2BAE00E9D1E7 /* AppDelegate.m in Sources */,
+				BC6D020D1FFB319B00ABBEBE /* MYThumbnail.m in Sources */,
 				BC857D531FDE303D00E9D1E7 /* DetailViewController.m in Sources */,
+				BC6D02151FFB319B00ABBEBE /* MYPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

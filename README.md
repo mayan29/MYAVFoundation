@@ -31,3 +31,26 @@ _metadataItem.metadata.title = @"new title";
 ### 示例截图
 
 ![01](https://github.com/Mayan29/MYAVFoundation/blob/master/SampleData/01.gif)
+
+
+## 2. 视频播放
+
+在新页面打开调用下面方法：
+
+```objc
+MYPlayerViewController *vc = [[MYPlayerViewController alloc] init];
+vc.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"hubblecast" ofType:@"m4v"]];
+[self presentViewController:vc animated:YES completion:nil];
+```
+
+将视频播放控件放在指定 view 上调用下面方法：
+
+```objc
+self.controller = [[MYPlayerController alloc] initWithURL:self.assetURL];
+    
+UIView *playerView = self.controller.view;
+playerView.frame = frame;
+[self.view addSubview:playerView];
+```    
+
+![02](https://github.com/Mayan29/MYAVFoundation/blob/master/SampleData/02.gif)

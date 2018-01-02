@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MetadataViewController.h"
+#import "VideoPlayerViewController.h"
 
 @interface ViewController ()
 
@@ -18,14 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
 }
 
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -35,14 +35,37 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    cell.textLabel.text = @"元数据获取、修改";
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"元数据获取、修改";
+            break;
+        case 1:
+            cell.textLabel.text = @"视频播放";
+            break;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MetadataViewController *vc = [[MetadataViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    switch (indexPath.row) {
+        case 0: {
+            MetadataViewController *vc = [[MetadataViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case 1: {
+            VideoPlayerViewController *vc = [[VideoPlayerViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 
