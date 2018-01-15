@@ -1,5 +1,5 @@
 //
-//  MYOverlayView.h
+//  MYPlayerOverlayView.h
 //  MYVideoPlayer
 //
 //  Created by mayan on 2017/12/27.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MYTransport.h"
 
-@interface MYOverlayView : UIView <MYTransport>
+@interface MYPlayerOverlayView : UIView <MYTransport>
 
 @property (nonatomic, weak) id<MYTransportDelegate> delegate;
 

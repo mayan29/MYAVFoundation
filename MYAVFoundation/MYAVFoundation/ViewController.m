@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MetadataViewController.h"
 #import "VideoPlayerViewController.h"
+#import "VideoRecorderViewController.h"
 
 @interface ViewController ()
 
@@ -25,7 +26,7 @@
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -42,6 +43,9 @@
             break;
         case 1:
             cell.textLabel.text = @"视频播放";
+            break;
+        case 2:
+            cell.textLabel.text = @"拍照、录制视频";
             break;
         default:
             break;
@@ -60,6 +64,11 @@
         }
         case 1: {
             VideoPlayerViewController *vc = [[VideoPlayerViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case 2: {
+            VideoRecorderViewController *vc = [[VideoRecorderViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

@@ -27,7 +27,7 @@
 @end
 
 
-// MYTransport = MYOverlayView，这里的方法都是 MYOverlayView 调用
+// MYTransport = MYPlayerOverlayView，这里的方法都是 MYPlayerOverlayView 调用
 @protocol MYTransport <NSObject>
 
 @property (weak, nonatomic) id <MYTransportDelegate> delegate;  // delegate = MYPlayerController

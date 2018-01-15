@@ -1,16 +1,16 @@
 //
-//  MYOverlayView.m
+//  MYPlayerOverlayView.m
 //  MYVideoPlayer
 //
 //  Created by mayan on 2017/12/27.
 //  Copyright © 2017年 mayan. All rights reserved.
 //
 
-#import "MYOverlayView.h"
+#import "MYPlayerOverlayView.h"
 #import "MYSubtitleViewController.h"
 #import "MYStillsListViewController.h"
 
-@interface MYOverlayView () <MYSubtitleViewControllerDelegate, MYStillsListViewControllerDelegate>
+@interface MYPlayerOverlayView () <MYSubtitleViewControllerDelegate, MYStillsListViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView      *upBgView;
 @property (weak, nonatomic) IBOutlet UIView      *downBgView;
@@ -37,7 +37,7 @@
 
 @end
 
-@implementation MYOverlayView
+@implementation MYPlayerOverlayView
 
 - (void)awakeFromNib {
     [super awakeFromNib];

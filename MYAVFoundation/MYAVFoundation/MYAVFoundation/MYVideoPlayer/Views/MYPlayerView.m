@@ -7,12 +7,12 @@
 //
 
 #import "MYPlayerView.h"
-#import "MYOverlayView.h"
+#import "MYPlayerOverlayView.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface MYPlayerView ()
 
-@property (nonatomic, strong) MYOverlayView *overlayView;
+@property (nonatomic, strong) MYPlayerOverlayView *overlayView;
 
 @end
 
@@ -37,7 +37,7 @@
         
         [(AVPlayerLayer *)[self layer] setPlayer:player];
         
-        _overlayView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MYOverlayView class])
+        _overlayView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MYPlayerOverlayView class])
                                                      owner:self
                                                    options:nil].firstObject;
         [self addSubview:_overlayView];
