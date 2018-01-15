@@ -395,10 +395,10 @@
 		BC940FE6200C9A2B002431B7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BC940FE7200C9A2B002431B7 /* MYRecorderViewController.m */,
-				BC940FE8200C9A2B002431B7 /* MYRecorderController.m */,
 				BC940FE9200C9A2B002431B7 /* MYRecorderViewController.h */,
+				BC940FE7200C9A2B002431B7 /* MYRecorderViewController.m */,
 				BC940FEA200C9A2B002431B7 /* MYRecorderController.h */,
+				BC940FE8200C9A2B002431B7 /* MYRecorderController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -406,11 +406,11 @@
 		BC940FEB200C9A2B002431B7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC940FEC200C9A2B002431B7 /* MYRecorderOverlayView.m */,
-				BC940FED200C9A2B002431B7 /* MYPreviewView.m */,
-				BC940FEE200C9A2B002431B7 /* MYRecorderOverlayView.xib */,
-				BC940FEF200C9A2B002431B7 /* MYRecorderOverlayView.h */,
 				BC940FF0200C9A2B002431B7 /* MYPreviewView.h */,
+				BC940FED200C9A2B002431B7 /* MYPreviewView.m */,
+				BC940FEF200C9A2B002431B7 /* MYRecorderOverlayView.h */,
+				BC940FEC200C9A2B002431B7 /* MYRecorderOverlayView.m */,
+				BC940FEE200C9A2B002431B7 /* MYRecorderOverlayView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";

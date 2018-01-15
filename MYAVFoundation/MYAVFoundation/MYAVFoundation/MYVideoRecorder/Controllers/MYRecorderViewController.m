@@ -10,12 +10,17 @@
 #import "MYRecorderController.h"
 #import "MYPreviewView.h"
 #import "MYRecorderOverlayView.h"
+#import "MYPlayerController.h"
+#import "MYPlayerView.h"
 
 @interface MYRecorderViewController () <MYRecorderOverlayViewDelegate, MYRecorderControllerDelegate, MYPreviewViewDelegate>
 
 @property (nonatomic, strong) MYRecorderController *controller;
 @property (nonatomic, strong) MYPreviewView *previewView;
 @property (nonatomic, strong) MYRecorderOverlayView *overlayView;
+
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) MYPlayerView *playerView;
 
 @end
 
@@ -30,6 +35,14 @@
     self.previewView = [[MYPreviewView alloc] initWithFrame:self.view.bounds];
     self.previewView.delegate = self;
     [self.view addSubview:self.previewView];
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    self.imageView.hidden = YES;
+    [self.view addSubview:self.imageView];
+    
+    self.playerView = [[MYPlayerView alloc] initWithFrame:self.view.bounds];
+    self.playerView.hidden = YES;
+    [self.view addSubview:self.playerView];
     
     self.overlayView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MYRecorderOverlayView class]) owner:nil options:nil].firstObject;
     self.overlayView.frame = self.view.bounds;
@@ -64,17 +77,15 @@
 
 #pragma mark - MYRecorderOverlayViewDelegate
 
-// 退出拍照
-- (void)dismissViewControllerWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：退出拍照
+- (void)dismissViewControllerClick {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-// 切换摄像头
-- (void)switchCameraWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：切换摄像头
+- (void)switchCameraClick {
     
-    BOOL isSuccess = [self.controller switchCameras];
-    
-    if (isSuccess) {
+    if ([self.controller switchCameras]) {
         
         BOOL hidden = NO;
         if (self.overlayView.shootType == ShootType_Photo) {
@@ -82,50 +93,62 @@
         } else {
             hidden = !self.controller.hasTorch;
         }
-//        self.overlayView.flashControlHidden = hidden;
-//        self.previewView.tapToExposeEnabled = self.cameraController.cameraSupportsTapToExpose;
-//        self.previewView.tapToFocusEnabled = self.cameraController.cameraSupportsTapToFocus;
-//        [self.cameraController resetFocusAndExposureModes];
+        //        self.overlayView.flashControlHidden = hidden;
+        self.previewView.tapToExposeEnabled = self.controller.isSupportsTapToExpose;
+        self.previewView.tapToFocusEnabled = self.controller.isSupportsTapToFocus;
+        [self.controller resetFocusAndExposureModes];
     }
 }
 
-// 拍照
-- (void)takePhotoWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：拍照
+- (void)takePhotoClick {
+    [self.controller captureStillImage];
+}
+
+// 点击按钮：取消拍照
+- (void)cancelPhotoClick {
+    self.imageView.image = nil;
+    self.imageView.hidden = YES;
+}
+
+// 点击按钮：选定照片
+- (void)selectedPhotoClick {
     
 }
 
-// 取消拍照
-- (void)cancelPhotoWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：开始视频录制
+- (void)startShootingClick {
     
 }
 
-// 选定照片
-- (void)selectedPhotoWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：结束视频录制
+- (void)endShootingClick {
     
 }
 
-// 开始视频录制
-- (void)startShootingWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：取消视频录制
+- (void)cancelShootingClick {
     
 }
 
-// 结束视频录制
-- (void)endShootingWithOverlayView:(MYRecorderOverlayView *)overlayView {
-    
-}
-
-// 取消视频录制
-- (void)cancelShootingWithOverlayView:(MYRecorderOverlayView *)overlayView {
-    
-}
-
-// 选定所录制的视频
-- (void)makeSureShootingWithOverlayView:(MYRecorderOverlayView *)overlayView {
+// 点击按钮：选定所录制的视频
+- (void)makeSureShootingClick {
     
 }
 
 
 #pragma mark - MYRecorderControllerDelegate
+
+- (void)recorderController:(MYRecorderController *)controller captureStillImage:(UIImage *)image {
+    if (image) {
+        self.imageView.hidden = NO;
+        self.imageView.image = image;
+    }
+}
+
+- (void)recorderController:(MYRecorderController *)controller captureVideoPath:(NSString *)path {
+    
+}
 
 - (void)recorderController:(MYRecorderController *)controller deviceConfigurationFailedWithError:(NSError *)error {
     

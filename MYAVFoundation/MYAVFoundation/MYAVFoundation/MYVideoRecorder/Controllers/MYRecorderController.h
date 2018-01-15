@@ -16,6 +16,9 @@
 - (void)recorderController:(MYRecorderController *)controller mediaCaptureFailedWithError:(NSError *)error;
 - (void)recorderController:(MYRecorderController *)controller assetLibraryWriteFailedWithError:(NSError *)error;
 
+- (void)recorderController:(MYRecorderController *)controller captureStillImage:(UIImage *)image;
+- (void)recorderController:(MYRecorderController *)controller captureVideoPath:(NSString *)path;
+
 @end
 
 
@@ -45,5 +48,14 @@
 - (void)focusAtPoint:(CGPoint)point;
 - (void)exposeAtPoint:(CGPoint)point;
 - (void)resetFocusAndExposureModes;
+
+// Still Image Capture
+- (void)captureStillImage;
+
+// Video Recording
+- (void)startRecording;
+- (void)stopRecording;
+- (BOOL)isRecording;
+- (CMTime)recordedDuration;
 
 @end

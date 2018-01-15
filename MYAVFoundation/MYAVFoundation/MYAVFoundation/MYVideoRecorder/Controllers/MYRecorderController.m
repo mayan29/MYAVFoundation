@@ -7,6 +7,7 @@
 //
 
 #import "MYRecorderController.h"
+#import <UIKit/UIKit.h>
 
 @interface MYRecorderController ()
 
@@ -347,10 +348,76 @@
 }
 
 
+#pragma mark - Capture Still Image and Video
+
+- (void)captureStillImage {
+    AVCaptureConnection *connection = [self.imageOutput connectionWithMediaType:AVMediaTypeVideo];
+    
+    if (connection.isVideoOrientationSupported) {
+        connection.videoOrientation = [self currentVideoOrientation];
+    }
+    
+    // Capture still image
+    [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
+        
+        if (imageDataSampleBuffer != NULL) {
+            
+            NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
+            UIImage *image = [[UIImage alloc] initWithData:imageData];
+            
+            if (self.delegate) {
+                [self.delegate recorderController:self captureStillImage:image];
+            }
+            
+        } else {
+            NSLog(@"NULL sampleBuffer: %@", [error localizedDescription]);
+        }
+    }];
+}
+
+- (void)startRecording {
+    
+}
+
+- (void)stopRecording {
+    
+}
+
+//- (BOOL)isRecording {
+//
+//}
+//
+//- (CMTime)recordedDuration {
+//
+//}
+
+
 #pragma mark - Other
 
 - (AVCaptureSession *)captureSession {
     return self.session;
+}
+
+- (AVCaptureVideoOrientation)currentVideoOrientation {
+    
+    AVCaptureVideoOrientation orientation;
+    
+    switch ([UIDevice currentDevice].orientation) {
+        case UIDeviceOrientationPortrait:
+            orientation = AVCaptureVideoOrientationPortrait;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            orientation = AVCaptureVideoOrientationLandscapeLeft;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            orientation = AVCaptureVideoOrientationPortraitUpsideDown;
+            break;
+        default:
+            orientation = AVCaptureVideoOrientationLandscapeRight;
+            break;
+    }
+    
+    return orientation;
 }
 
 

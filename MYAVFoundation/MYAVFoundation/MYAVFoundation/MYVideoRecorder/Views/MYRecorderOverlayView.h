@@ -16,27 +16,17 @@ typedef NS_ENUM(int, ShootType) {
 @class MYRecorderOverlayView;
 @protocol MYRecorderOverlayViewDelegate <NSObject>
 
-// 退出拍照
-- (void)dismissViewControllerWithOverlayView:(MYRecorderOverlayView *)overlayView;
+- (void)dismissViewControllerClick;  // 点击按钮：退出拍照
+- (void)switchCameraClick;           // 点击按钮：切换摄像头
 
-// 切换摄像头
-- (void)switchCameraWithOverlayView:(MYRecorderOverlayView *)overlayView;
+- (void)takePhotoClick;         // 点击按钮：拍照
+- (void)cancelPhotoClick;       // 点击按钮：取消拍照
+- (void)selectedPhotoClick;     // 点击按钮：选定照片
 
-// 拍照
-- (void)takePhotoWithOverlayView:(MYRecorderOverlayView *)overlayView;
-// 取消拍照
-- (void)cancelPhotoWithOverlayView:(MYRecorderOverlayView *)overlayView;
-// 选定照片
-- (void)selectedPhotoWithOverlayView:(MYRecorderOverlayView *)overlayView;
-
-// 开始视频录制
-- (void)startShootingWithOverlayView:(MYRecorderOverlayView *)overlayView;
-// 结束视频录制
-- (void)endShootingWithOverlayView:(MYRecorderOverlayView *)overlayView;
-// 取消视频录制
-- (void)cancelShootingWithOverlayView:(MYRecorderOverlayView *)overlayView;
-// 选定所录制的视频
-- (void)makeSureShootingWithOverlayView:(MYRecorderOverlayView *)overlayView;
+- (void)startShootingClick;     // 点击按钮：开始视频录制
+- (void)endShootingClick;       // 点击按钮：结束视频录制
+- (void)cancelShootingClick;    // 点击按钮：取消视频录制
+- (void)makeSureShootingClick;  // 点击按钮：选定所录制的视频
 
 @end
 

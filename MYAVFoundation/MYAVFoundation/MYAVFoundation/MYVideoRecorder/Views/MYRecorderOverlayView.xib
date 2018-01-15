@@ -96,7 +96,9 @@
             </constraints>
             <connections>
                 <outlet property="cancelButton" destination="frU-lJ-j9Y" id="g4C-PB-fKG"/>
+                <outlet property="cancelButtonCenterX" destination="IUI-43-9ku" id="kFh-mr-eTC"/>
                 <outlet property="chooseButton" destination="C91-9k-f04" id="0ty-J4-nTL"/>
+                <outlet property="chooseButtonCenterX" destination="t5I-dL-cLd" id="Ihv-vJ-SnL"/>
                 <outlet property="msgLabel" destination="FZQ-Un-mmY" id="FDT-MG-kOm"/>
                 <outlet property="popButton" destination="9QN-LM-VMd" id="iok-nQ-kiz"/>
                 <outlet property="shootButton" destination="xPi-9I-15T" id="bZ7-9G-FTF"/>

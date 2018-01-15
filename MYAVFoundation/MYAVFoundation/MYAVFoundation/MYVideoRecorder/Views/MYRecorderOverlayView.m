@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *chooseButton;  // 确认拍照
 @property (weak, nonatomic) IBOutlet UIButton *switchButton;  // 切换摄像头
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cancelButtonCenterX;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chooseButtonCenterX;
+
 @property (nonatomic, strong) CAShapeLayer *innerLayer;    // 拍照按钮 - 内圆
 @property (nonatomic, strong) CAShapeLayer *outsideLayer;  // 拍照按钮 - 外圆
 @property (nonatomic, strong) CAShapeLayer *progressLayer; // 拍照按钮 - 进度
@@ -171,11 +174,10 @@
 
 #pragma mark - Private Method
 
-// pop 照相 & 录制视频页面
+// 退出拍照
 - (IBAction)popButtonClick:(UIButton *)sender {
-    
-    if ([_delegate respondsToSelector:@selector(dismissViewControllerWithOverlayView:)]) {
-        [_delegate dismissViewControllerWithOverlayView:self];
+    if (_delegate) {
+        [_delegate dismissViewControllerClick];
     }
 }
 
@@ -184,8 +186,8 @@
     
     _shootType = ShootType_Photo;
     
-    if ([_delegate respondsToSelector:@selector(takePhotoWithOverlayView:)]) {
-        [_delegate takePhotoWithOverlayView:self];
+    if (_delegate) {
+        [_delegate takePhotoClick];
         [self setNormalAnimation];
     }
 }
@@ -197,15 +199,15 @@
     
     if (aGesture.state == UIGestureRecognizerStateBegan) {
         
-        if ([_delegate respondsToSelector:@selector(startShootingWithOverlayView:)]) {
-            [_delegate startShootingWithOverlayView:self];
+        if (_delegate) {
+            [_delegate startShootingClick];
             [self setScaleAnimation];
         }
     }
-    else if (aGesture.state == UIGestureRecognizerStateEnded){
+    else if (aGesture.state == UIGestureRecognizerStateEnded) {
         
-        if ([_delegate respondsToSelector:@selector(endShootingWithOverlayView:)]) {
-            [_delegate endShootingWithOverlayView:self];
+        if (_delegate) {
+            [_delegate endShootingClick];
             [self setNormalAnimation];
         }
     }
@@ -228,32 +230,32 @@
     }];
     
     // 取消录制视频
-    if ([_delegate respondsToSelector:@selector(cancelShootingWithOverlayView:)] && _shootType == ShootType_Video) {
-        [_delegate cancelShootingWithOverlayView:self];
+    if (_delegate && _shootType == ShootType_Video) {
+        [_delegate cancelShootingClick];
     }
     // 取消拍照
-    if ([_delegate respondsToSelector:@selector(cancelPhotoWithOverlayView:)] && _shootType == ShootType_Photo) {
-        [_delegate cancelPhotoWithOverlayView:self];
+    if (_delegate && _shootType == ShootType_Photo) {
+        [_delegate cancelPhotoClick];
     }
 }
 
 // 确认拍照或录像
 - (IBAction)chooseButtonClick:(UIButton *)sender {
 
-    if ([_delegate respondsToSelector:@selector(makeSureShootingWithOverlayView:)] && _shootType == ShootType_Video) {
-        [_delegate makeSureShootingWithOverlayView:self];
+    if (_delegate && _shootType == ShootType_Video) {
+        [_delegate makeSureShootingClick];
     }
     // 取消拍照
-    if ([_delegate respondsToSelector:@selector(selectedPhotoWithOverlayView:)] && _shootType == ShootType_Photo) {
-        [_delegate selectedPhotoWithOverlayView:self];
+    if (_delegate && _shootType == ShootType_Photo) {
+        [_delegate selectedPhotoClick];
     }
 }
 
 // 切换摄像头
 - (IBAction)switchCamera:(UIButton *)sender {
     
-    if ([_delegate respondsToSelector:@selector(switchCameraWithOverlayView:)]) {
-        [_delegate switchCameraWithOverlayView:self];
+    if (_delegate) {
+        [_delegate switchCameraClick];
     }
 }
 
