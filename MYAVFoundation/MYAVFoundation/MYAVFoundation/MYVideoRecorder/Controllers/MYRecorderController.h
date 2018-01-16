@@ -17,7 +17,7 @@
 - (void)recorderController:(MYRecorderController *)controller assetLibraryWriteFailedWithError:(NSError *)error;
 
 - (void)recorderController:(MYRecorderController *)controller captureStillImage:(UIImage *)image;
-- (void)recorderController:(MYRecorderController *)controller captureVideoPath:(NSString *)path;
+- (void)recorderController:(MYRecorderController *)controller captureVideoURL:(NSURL *)url;
 
 @end
 
@@ -56,6 +56,5 @@
 - (void)startRecording;
 - (void)stopRecording;
 - (BOOL)isRecording;
-- (CMTime)recordedDuration;
 
 @end

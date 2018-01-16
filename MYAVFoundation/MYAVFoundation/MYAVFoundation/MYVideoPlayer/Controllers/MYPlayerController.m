@@ -37,7 +37,7 @@
 {
     self = [super init];
     if (self) {
-        
+        _url = assetURL;
         [self prepareToPlay:assetURL];
     }
     return self;
@@ -142,6 +142,9 @@
                                                       
         [weakSelf.player seekToTime:kCMTimeZero completionHandler:^(BOOL finished) {
             [self.playerView.transport playbackComplete];
+            if (self.isLoopPlayback) {
+                [self play];
+            }
         }];
     }];
 }
@@ -305,6 +308,5 @@
     // 允许按照第一个参数所指定的时间段生成一个图片序列，该方法具有很高的性能，只需要调用这一个方法就可以生成一组图片
     [self.imageGenerator generateCGImagesAsynchronouslyForTimes:times completionHandler:handler];
 }
-
 
 @end

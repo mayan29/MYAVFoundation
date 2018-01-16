@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoRecorderViewController">
+            <connections>
+                <outlet property="imageView" destination="v3u-dw-Tav" id="4mn-6R-WIQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHA-Tc-YzX">
+                    <rect key="frame" x="155.5" y="568" width="64" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="dSX-oh-hPu"/>
+                        <constraint firstAttribute="width" constant="64" id="v8b-fK-4r2"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="照相.png"/>
+                    <connections>
+                        <action selector="buttonClick:" destination="-1" eventType="touchUpInside" id="tG8-I4-0Lx"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v3u-dw-Tav">
+                    <rect key="frame" x="94" y="167" width="187.5" height="333.5"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="v3u-dw-Tav" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="7hT-dp-Lc5"/>
+                <constraint firstAttribute="bottom" secondItem="DHA-Tc-YzX" secondAttribute="bottom" constant="50" id="Gwx-iu-D72"/>
+                <constraint firstItem="v3u-dw-Tav" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WEP-f1-orR"/>
+                <constraint firstItem="v3u-dw-Tav" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Xyt-KH-gnM"/>
+                <constraint firstItem="v3u-dw-Tav" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="cXk-SQ-CQx"/>
+                <constraint firstItem="DHA-Tc-YzX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hSa-u7-Lxw"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="照相.png" width="128" height="98"/>
+    </resources>
+</document>

@@ -15,5 +15,6 @@
 - (instancetype)initWithPlayer:(AVPlayer *)player;
 
 @property (nonatomic, weak, readonly) id<MYTransport> transport;
+@property (nonatomic, assign) BOOL overlayViewHidden;
 
 @end

@@ -217,8 +217,11 @@
 - (IBAction)cancelButtonClick:(UIButton *)sender {
 
     [UIView animateWithDuration:0.25 animations:^{
-        self.cancelButton.center = CGPointMake(self.center.x, self.cancelButton.center.y);
-        self.chooseButton.center = CGPointMake(self.center.x, self.chooseButton.center.y);
+        
+        self.cancelButtonCenterX.constant = 0;
+        self.chooseButtonCenterX.constant = 0;
+        [self layoutIfNeeded];
+        
     } completion:^(BOOL finished) {
         self.cancelButton.hidden = YES;
         self.chooseButton.hidden = YES;
@@ -293,8 +296,11 @@
     self.popButton.hidden    = YES;
     
     [UIView animateWithDuration:0.25 animations:^{
-        self.cancelButton.center = CGPointMake(self.center.x * 0.5, self.cancelButton.center.y);
-        self.chooseButton.center = CGPointMake(self.center.x * 1.5, self.chooseButton.center.y);
+        
+        self.cancelButtonCenterX.constant = - self.bounds.size.width / 4;
+        self.chooseButtonCenterX.constant = self.bounds.size.width / 4;
+        [self layoutIfNeeded];
+        
     } completion:^(BOOL finished) {
         self.innerLayer.hidden   = YES;
         self.outsideLayer.hidden = YES;

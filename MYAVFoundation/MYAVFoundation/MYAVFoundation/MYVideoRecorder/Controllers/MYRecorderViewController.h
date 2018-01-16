@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class MYRecorderViewController;
+@protocol MYRecorderViewControllerDelegate <NSObject>
+
+- (void)captureStillImage:(UIImage *)image;
+- (void)captureVideoURL:(NSURL *)url;
+
+@end
+
 @interface MYRecorderViewController : UIViewController
+
+@property (nonatomic, weak) id<MYRecorderViewControllerDelegate> delegate;
 
 @end

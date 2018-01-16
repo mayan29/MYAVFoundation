@@ -43,13 +43,14 @@
 		BC857D5F1FDE308200E9D1E7 /* 01 Demo AAC.m4a in Resources */ = {isa = PBXBuildFile; fileRef = BC857D591FDE308200E9D1E7 /* 01 Demo AAC.m4a */; };
 		BC857D601FDE308200E9D1E7 /* 04 Demo ID3v2.4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC857D5A1FDE308200E9D1E7 /* 04 Demo ID3v2.4.mp3 */; };
 		BC940FCE200C9684002431B7 /* 照相.png in Resources */ = {isa = PBXBuildFile; fileRef = BC940FCD200C9684002431B7 /* 照相.png */; };
-		BC940FD1200C96B5002431B7 /* VideoRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC940FD0200C96B5002431B7 /* VideoRecorderViewController.m */; };
 		BC940FF2200C9A2B002431B7 /* MYRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC940FE7200C9A2B002431B7 /* MYRecorderViewController.m */; };
 		BC940FF3200C9A2B002431B7 /* MYRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC940FE8200C9A2B002431B7 /* MYRecorderController.m */; };
 		BC940FF4200C9A2B002431B7 /* MYRecorderOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC940FEC200C9A2B002431B7 /* MYRecorderOverlayView.m */; };
 		BC940FF5200C9A2B002431B7 /* MYPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC940FED200C9A2B002431B7 /* MYPreviewView.m */; };
 		BC940FF6200C9A2B002431B7 /* MYRecorderOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC940FEE200C9A2B002431B7 /* MYRecorderOverlayView.xib */; };
 		BC940FF7200C9A2B002431B7 /* MYVideoRecorderResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BC940FF1200C9A2B002431B7 /* MYVideoRecorderResource.bundle */; };
+		BCF9E400200DE5E0004CD751 /* VideoRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF9E3FE200DE5E0004CD751 /* VideoRecorderViewController.m */; };
+		BCF9E401200DE5E0004CD751 /* VideoRecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF9E3FF200DE5E0004CD751 /* VideoRecorderViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +135,6 @@
 		BC857D591FDE308200E9D1E7 /* 01 Demo AAC.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "01 Demo AAC.m4a"; sourceTree = "<group>"; };
 		BC857D5A1FDE308200E9D1E7 /* 04 Demo ID3v2.4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "04 Demo ID3v2.4.mp3"; sourceTree = "<group>"; };
 		BC940FCD200C9684002431B7 /* 照相.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照相.png"; sourceTree = "<group>"; };
-		BC940FCF200C96B5002431B7 /* VideoRecorderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoRecorderViewController.h; sourceTree = "<group>"; };
-		BC940FD0200C96B5002431B7 /* VideoRecorderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoRecorderViewController.m; sourceTree = "<group>"; };
 		BC940FE7200C9A2B002431B7 /* MYRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRecorderViewController.m; sourceTree = "<group>"; };
 		BC940FE8200C9A2B002431B7 /* MYRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYRecorderController.m; sourceTree = "<group>"; };
 		BC940FE9200C9A2B002431B7 /* MYRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRecorderViewController.h; sourceTree = "<group>"; };
@@ -146,6 +145,9 @@
 		BC940FEF200C9A2B002431B7 /* MYRecorderOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYRecorderOverlayView.h; sourceTree = "<group>"; };
 		BC940FF0200C9A2B002431B7 /* MYPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYPreviewView.h; sourceTree = "<group>"; };
 		BC940FF1200C9A2B002431B7 /* MYVideoRecorderResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYVideoRecorderResource.bundle; sourceTree = "<group>"; };
+		BCF9E3FD200DE5E0004CD751 /* VideoRecorderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoRecorderViewController.h; sourceTree = "<group>"; };
+		BCF9E3FE200DE5E0004CD751 /* VideoRecorderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoRecorderViewController.m; sourceTree = "<group>"; };
+		BCF9E3FF200DE5E0004CD751 /* VideoRecorderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoRecorderViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,8 +370,9 @@
 			isa = PBXGroup;
 			children = (
 				BC940FCC200C9673002431B7 /* Media */,
-				BC940FCF200C96B5002431B7 /* VideoRecorderViewController.h */,
-				BC940FD0200C96B5002431B7 /* VideoRecorderViewController.m */,
+				BCF9E3FD200DE5E0004CD751 /* VideoRecorderViewController.h */,
+				BCF9E3FE200DE5E0004CD751 /* VideoRecorderViewController.m */,
+				BCF9E3FF200DE5E0004CD751 /* VideoRecorderViewController.xib */,
 			);
 			path = MYVideoRecorderDemo;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				BC857D021FDE2BAE00E9D1E7 /* Main.storyboard in Resources */,
 				BC940FF6200C9A2B002431B7 /* MYRecorderOverlayView.xib in Resources */,
 				BC857D5D1FDE308200E9D1E7 /* 02 Demo ID3v2.2.mp3 in Resources */,
+				BCF9E401200DE5E0004CD751 /* VideoRecorderViewController.xib in Resources */,
 				BC6D01F41FFB30B000ABBEBE /* hubblecast.m4v in Resources */,
 				BC857D5F1FDE308200E9D1E7 /* 01 Demo AAC.m4a in Resources */,
 				BC6D02141FFB319B00ABBEBE /* MYPlayerOverlayView.xib in Resources */,
@@ -580,11 +584,11 @@
 				BC857D431FDE2CEF00E9D1E7 /* AVMetadataItem+Extension.m in Sources */,
 				BC857D3E1FDE2CEF00E9D1E7 /* MYMetadataConverterFactory.m in Sources */,
 				BC857D421FDE2CEF00E9D1E7 /* MYMetadata.m in Sources */,
+				BCF9E400200DE5E0004CD751 /* VideoRecorderViewController.m in Sources */,
 				BC940FF3200C9A2B002431B7 /* MYRecorderController.m in Sources */,
 				BC857CFC1FDE2BAE00E9D1E7 /* AppDelegate.m in Sources */,
 				BC6D020D1FFB319B00ABBEBE /* MYThumbnail.m in Sources */,
 				BC857D531FDE303D00E9D1E7 /* DetailViewController.m in Sources */,
-				BC940FD1200C96B5002431B7 /* VideoRecorderViewController.m in Sources */,
 				BC6D02151FFB319B00ABBEBE /* MYPlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

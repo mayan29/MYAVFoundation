@@ -12,6 +12,8 @@
 
 - (instancetype)initWithURL:(NSURL *)assetURL;
 
+@property (nonatomic, strong, readonly) NSURL *url;
 @property (nonatomic, strong, readonly) UIView *view;
+@property (nonatomic, assign) BOOL isLoopPlayback;
 
 @end

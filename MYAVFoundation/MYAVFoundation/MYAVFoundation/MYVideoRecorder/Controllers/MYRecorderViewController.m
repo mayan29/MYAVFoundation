@@ -19,6 +19,7 @@
 @property (nonatomic, strong) MYPreviewView *previewView;
 @property (nonatomic, strong) MYRecorderOverlayView *overlayView;
 
+@property (nonatomic, strong) MYPlayerController *playerController;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) MYPlayerView *playerView;
 
@@ -35,14 +36,6 @@
     self.previewView = [[MYPreviewView alloc] initWithFrame:self.view.bounds];
     self.previewView.delegate = self;
     [self.view addSubview:self.previewView];
-    
-    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    self.imageView.hidden = YES;
-    [self.view addSubview:self.imageView];
-    
-    self.playerView = [[MYPlayerView alloc] initWithFrame:self.view.bounds];
-    self.playerView.hidden = YES;
-    [self.view addSubview:self.playerView];
     
     self.overlayView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([MYRecorderOverlayView class]) owner:nil options:nil].firstObject;
     self.overlayView.frame = self.view.bounds;
@@ -107,33 +100,39 @@
 
 // 点击按钮：取消拍照
 - (void)cancelPhotoClick {
-    self.imageView.image = nil;
-    self.imageView.hidden = YES;
+    [self dismissStillImage];
 }
 
 // 点击按钮：选定照片
 - (void)selectedPhotoClick {
-    
+    if (self.delegate) {
+        [self.delegate captureStillImage:self.imageView.image];
+    }
+    [self dismissViewControllerClick];
 }
 
 // 点击按钮：开始视频录制
 - (void)startShootingClick {
-    
+    [self.controller startRecording];
 }
 
 // 点击按钮：结束视频录制
 - (void)endShootingClick {
-    
+    [self.controller stopRecording];
 }
 
 // 点击按钮：取消视频录制
 - (void)cancelShootingClick {
-    
+    [self.controller stopRecording];
+    [self dismissVideoPlayer];
 }
 
 // 点击按钮：选定所录制的视频
 - (void)makeSureShootingClick {
-    
+    if (self.delegate) {
+        [self.delegate captureVideoURL:self.playerController.url];
+    }
+    [self dismissViewControllerClick];
 }
 
 
@@ -141,13 +140,14 @@
 
 - (void)recorderController:(MYRecorderController *)controller captureStillImage:(UIImage *)image {
     if (image) {
-        self.imageView.hidden = NO;
-        self.imageView.image = image;
+        [self showStillImage:image];
     }
 }
 
-- (void)recorderController:(MYRecorderController *)controller captureVideoPath:(NSString *)path {
-    
+- (void)recorderController:(MYRecorderController *)controller captureVideoURL:(NSURL *)url {
+    if (url) {
+        [self showVideoPlayer:url];
+    }
 }
 
 - (void)recorderController:(MYRecorderController *)controller deviceConfigurationFailedWithError:(NSError *)error {
@@ -176,5 +176,38 @@
 - (void)tappedToResetFocusAndExposure {
     [self.controller resetFocusAndExposureModes];
 }
+
+
+#pragma mark - Other
+
+- (void)showStillImage:(UIImage *)image {
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    self.imageView.image = image;
+    [self.view insertSubview:self.imageView belowSubview:self.overlayView];
+}
+
+- (void)dismissStillImage {
+    [self.imageView removeFromSuperview];
+    self.imageView = nil;
+}
+
+- (void)showVideoPlayer:(NSURL *)url {
+    
+    self.playerController = [[MYPlayerController alloc] initWithURL:url];
+    self.playerController.isLoopPlayback = YES;
+    
+    self.playerView = (MYPlayerView *)self.playerController.view;
+    self.playerView.frame = self.view.bounds;
+    self.playerView.overlayViewHidden = YES;
+    [self.view insertSubview:self.playerView belowSubview:self.overlayView];
+}
+
+- (void)dismissVideoPlayer {
+    [self.playerView removeFromSuperview];
+    self.playerView = nil;
+    self.playerController = nil;
+}
+
 
 @end

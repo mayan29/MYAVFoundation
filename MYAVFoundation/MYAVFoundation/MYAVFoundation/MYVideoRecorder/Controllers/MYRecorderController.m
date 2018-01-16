@@ -9,13 +9,15 @@
 #import "MYRecorderController.h"
 #import <UIKit/UIKit.h>
 
-@interface MYRecorderController ()
+@interface MYRecorderController () <AVCaptureFileOutputRecordingDelegate>
 
 @property (nonatomic, strong) AVCaptureSession          *session;
 @property (nonatomic, strong) AVCaptureDeviceInput      *videoInput;   // 视频输入流
 @property (nonatomic, strong) AVCaptureDeviceInput      *audioInput;   // 音频输入流
 @property (nonatomic, strong) AVCaptureMovieFileOutput  *movieOutput;  // 视频输出流
 @property (nonatomic, strong) AVCaptureStillImageOutput *imageOutput;  // 照片输出流
+
+@property (nonatomic, strong) NSURL *outputURL;
 
 @end
 
@@ -357,6 +359,14 @@
         connection.videoOrientation = [self currentVideoOrientation];
     }
     
+    // 开启防抖模式，分辨率 1280x720 以上才会执行防抖功能
+    if ([self.videoInput.device.activeFormat isVideoStabilizationModeSupported:AVCaptureVideoStabilizationModeCinematic]) {
+        [connection setPreferredVideoStabilizationMode:AVCaptureVideoStabilizationModeCinematic];
+    }
+    
+    // 前置摄像头翻转
+    connection.videoMirrored = (self.videoInput.device.position == AVCaptureDevicePositionFront);
+    
     // Capture still image
     [self.imageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef  _Nullable imageDataSampleBuffer, NSError * _Nullable error) {
         
@@ -377,19 +387,60 @@
 
 - (void)startRecording {
     
+    if (![self isRecording]) {
+        
+        AVCaptureConnection *videoConnection = [self.movieOutput connectionWithMediaType:AVMediaTypeVideo];
+        
+        // 如果支持，将其设置为当前视频方向
+        if ([videoConnection isVideoOrientationSupported]) {
+            videoConnection.videoOrientation = self.currentVideoOrientation;
+        }
+        
+        if ([videoConnection isVideoStabilizationSupported]) {
+            videoConnection.preferredVideoStabilizationMode = AVCaptureVideoStabilizationModeAuto;
+        }
+        
+        AVCaptureDevice *device = self.videoInput.device;
+        
+        // 摄像头可以进行平滑对焦模式的操作，即减慢摄像头镜头对焦的速度，从而提供更加自然的视频录制效果
+        if (device.isSmoothAutoFocusSupported) {
+            NSError *error;
+            if ([device lockForConfiguration:&error]) {
+                device.smoothAutoFocusEnabled = NO;
+                [device unlockForConfiguration];
+            } else {
+                [self.delegate recorderController:self deviceConfigurationFailedWithError:error];
+            }
+        }
+        
+        self.outputURL = [self uniqueURL];
+        [self.movieOutput startRecordingToOutputFileURL:self.outputURL recordingDelegate:self];
+    }
 }
 
 - (void)stopRecording {
-    
+    if ([self isRecording]) {
+        [self.movieOutput stopRecording];
+    }
 }
 
-//- (BOOL)isRecording {
-//
-//}
-//
-//- (CMTime)recordedDuration {
-//
-//}
+- (BOOL)isRecording {
+    return self.movieOutput.isRecording;
+}
+
+
+#pragma mark - AVCaptureFileOutputRecordingDelegate
+
+- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error {
+    if (error) {
+        [self.delegate recorderController:self mediaCaptureFailedWithError:error];
+    } else {
+        if (self.delegate) {
+            [self.delegate recorderController:self captureVideoURL:outputFileURL];
+        }
+    }
+    self.outputURL = nil;
+}
 
 
 #pragma mark - Other
@@ -418,6 +469,14 @@
     }
     
     return orientation;
+}
+
+- (NSURL *)uniqueURL {
+    
+    NSString *t = [NSString stringWithFormat:@"%.0f.mp4", [[NSDate date] timeIntervalSince1970] * 1000];
+    NSString *path = [NSTemporaryDirectory() stringByAppendingPathComponent:t];
+    
+    return [NSURL fileURLWithPath:path];
 }
 
 

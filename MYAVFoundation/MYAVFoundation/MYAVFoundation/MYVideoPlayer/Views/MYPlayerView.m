@@ -32,8 +32,8 @@
     self = [super initWithFrame:CGRectZero];
     if (self) {
         self.backgroundColor = [UIColor blackColor];
-        self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
-                                UIViewAutoresizingFlexibleWidth;
+//        self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
+//                                UIViewAutoresizingFlexibleWidth;
         
         [(AVPlayerLayer *)[self layer] setPlayer:player];
         
@@ -54,5 +54,9 @@
     return self.overlayView;
 }
 
+- (void)setOverlayViewHidden:(BOOL)overlayViewHidden {
+    _overlayViewHidden = overlayViewHidden;
+    self.overlayView.hidden = overlayViewHidden;
+}
 
 @end
